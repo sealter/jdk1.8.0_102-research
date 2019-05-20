@@ -51,7 +51,7 @@ import java.util.Collection;
  * Upon termination, an executor has no tasks actively executing, no
  * tasks awaiting execution, and no new tasks can be submitted.  An
  * unused {@code ExecutorService} should be shut down to allow
- * reclamation of its resources.
+ * reclamation(回收) of its resources.
  *
  * <p>Method {@code submit} extends base method {@link
  * Executor#execute(Runnable)} by creating and returning a {@link Future}

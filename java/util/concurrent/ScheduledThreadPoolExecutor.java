@@ -569,6 +569,8 @@ public class ScheduledThreadPoolExecutor
                                           triggerTime(initialDelay, unit),
                                           unit.toNanos(period));
         RunnableScheduledFuture<Void> t = decorateTask(command, sft);
+
+        //TODO: haozhichao 2019-02-20 11:21:00  循环引用啊。。。。 引用计数器。。。。
         sft.outerTask = t;
         delayedExecute(t);
         return t;
@@ -875,6 +877,8 @@ public class ScheduledThreadPoolExecutor
          * Call only when holding lock.
          */
         private void siftUp(int k, RunnableScheduledFuture<?> key) {
+
+            //TODO: haozhichao 2019-02-20 14:08:51  二分查找。没有判断比 key 小的那一路？
             while (k > 0) {
                 int parent = (k - 1) >>> 1;
                 RunnableScheduledFuture<?> e = queue[parent];

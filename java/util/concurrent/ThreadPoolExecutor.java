@@ -162,7 +162,7 @@ import java.util.*;
  * new thread will be constructed. This policy avoids lockups when
  * handling sets of requests that might have internal dependencies.
  * Direct handoffs generally require unbounded maximumPoolSizes to
- * avoid rejection of new submitted tasks. This in turn admits the
+ * avoid rejection of new submitted tasks. This in turn admits(承认，招致) the
  * possibility of unbounded thread growth when commands continue to
  * arrive on average faster than they can be processed.  </li>
  *
@@ -246,7 +246,7 @@ import java.util.*;
  * fully terminated.
  *
  * <p>If hook or callback methods throw exceptions, internal worker
- * threads may in turn fail and abruptly terminate.</dd>
+ * threads may in turn fail and abruptly(粗鲁，出乎意料) terminate.</dd>
  *
  * <dt>Queue maintenance</dt>
  *
@@ -609,6 +609,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
         Worker(Runnable firstTask) {
             setState(-1); // inhibit interrupts until runWorker
             this.firstTask = firstTask;
+            //TODO: haozhichao 2019-02-20 14:38:26  又一个循环引用的例子
             this.thread = getThreadFactory().newThread(this);
         }
 

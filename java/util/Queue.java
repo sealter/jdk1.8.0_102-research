@@ -196,6 +196,7 @@ public interface Queue<E> extends Collection<E> {
      *
      * @return the head of this queue, or {@code null} if this queue is empty
      */
+    //TODO: haozhichao 2019-02-19 13:21:02 poll: 获得
     E poll();
 
     /**
@@ -214,5 +215,6 @@ public interface Queue<E> extends Collection<E> {
      *
      * @return the head of this queue, or {@code null} if this queue is empty
      */
+    //TODO: haozhichao 2019-02-19 13:20:40  peek :偷窥，偷看
     E peek();
 }

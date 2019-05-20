@@ -1052,7 +1052,7 @@ public abstract class ByteBuffer
      * <blockquote><pre>{@code
      *   buf.clear();          // Prepare buffer for use
      *   while (in.read(buf) >= 0 || buf.position != 0) {
-     *       buf.flip();
+     *       buf.flip(); //TODO: haozhichao 2019-02-19 10:35:29 刚刚读完的部分
      *       out.write(buf);
      *       buf.compact();    // In case of partial write
      *   }
@@ -1159,11 +1159,18 @@ public abstract class ByteBuffer
     public boolean equals(Object ob) {
         if (this == ob)
             return true;
+        //TODO: haozhichao 2019-01-17 14:07:47  1. 类型相同
         if (!(ob instanceof ByteBuffer))
             return false;
+
         ByteBuffer that = (ByteBuffer)ob;
+
+        //TODO: haozhichao 2019-01-17 14:08:14  2. 剩余元素数量相同
         if (this.remaining() != that.remaining())
             return false;
+
+        //TODO: haozhichao 2019-01-17 14:09:27  3. 剩余元素相同
+        //TODO: haozhichao 2019-01-17 14:13:47   注意， 这里是倒叙循环的
         int p = this.position();
         for (int i = this.limit() - 1, j = that.limit() - 1; i >= p; i--, j--)
             if (!equals(this.get(i), that.get(j)))

@@ -184,7 +184,7 @@ public interface Condition {
      *
      * <p>The lock associated with this {@code Condition} is atomically
      * released and the current thread becomes disabled for thread scheduling
-     * purposes and lies dormant until <em>one</em> of four things happens:
+     * purposes and lies dormant(休眠的，暂停活动的) until <em>one</em> of four things happens:
      * <ul>
      * <li>Some other thread invokes the {@link #signal} method for this
      * {@code Condition} and the current thread happens to be chosen as the
@@ -192,8 +192,8 @@ public interface Condition {
      * <li>Some other thread invokes the {@link #signalAll} method for this
      * {@code Condition}; or
      * <li>Some other thread {@linkplain Thread#interrupt interrupts} the
-     * current thread, and interruption of thread suspension is supported; or
-     * <li>A &quot;<em>spurious wakeup</em>&quot; occurs.
+     * current thread, and interruption of thread suspension(暂缓) is supported; or
+     * <li>A &quot;<em>spurious(虚假的，伪造的) wakeup</em>&quot; occurs.
      * </ul>
      *
      * <p>In all cases, before this method can return the current thread must

@@ -64,7 +64,7 @@ package java.util.concurrent;
  * }}</pre>
  *
  * More typically, tasks are executed in some thread other
- * than the caller's thread.  The executor below spawns a new thread
+ * than the caller's thread.  The executor below spawns(引起， 引发) a new thread
  * for each task.
  *
  *  <pre> {@code
@@ -74,7 +74,7 @@ package java.util.concurrent;
  *   }
  * }}</pre>
  *
- * Many {@code Executor} implementations impose some sort of
+ * Many {@code Executor} implementations impose(推行， 迫使，强制实行， 把...强加于) some sort of
  * limitation on how and when tasks are scheduled.  The executor below
  * serializes the submission of tasks to a second executor,
  * illustrating a composite executor.

@@ -74,6 +74,7 @@ import java.util.Set;
  * register} method.  Cancelled keys are removed from the key set during
  * selection operations.  The key set itself is not directly modifiable.
  *
+ * //TODO: haozhichao 2019-02-19 11:01:14 下一次选择操作的时候才注销
  * <p> A key is added to its selector's cancelled-key set when it is cancelled,
  * whether by closing its channel or by invoking its {@link SelectionKey#cancel
  * cancel} method.  Cancelling a key will cause its channel to be deregistered
@@ -101,10 +102,12 @@ import java.util.Set;
  *
  * <ol>
  *
+ *    //TODO: haozhichao 2019-03-06 16:07:10  1. 删除 cancelled-key set 的 key, 注销 对应的 Channell
  *   <li><p> Each key in the cancelled-key set is removed from each key set of
  *   which it is a member, and its channel is deregistered.  This step leaves
  *   the cancelled-key set empty. </p></li>
  *
+ *   //TODO: haozhichao 2019-03-06 16:08:18  2. 操作系统查询 interest set 的 channel 是否就绪
  *   <li><p> The underlying operating system is queried for an update as to the
  *   readiness of each remaining channel to perform any of the operations
  *   identified by its key's interest set as of the moment that the selection
@@ -113,12 +116,14 @@ import java.util.Set;
  *
  *   <ol>
  *
+ *     //TODO: haozhichao 2019-03-06 16:11:04  2.1 不在 selected-key set 中的话， 直接加入， ready set 置位，之前的就绪信息扔掉
  *     <li><p> If the channel's key is not already in the selected-key set then
  *     it is added to that set and its ready-operation set is modified to
  *     identify exactly those operations for which the channel is now reported
  *     to be ready.  Any readiness information previously recorded in the ready
  *     set is discarded.  </p></li>
  *
+ *     //TODO: haozhichao 2019-03-06 16:14:03  2.2 已经在 selected-key set 中， ready set 修改为新的操作, 之前的就绪信息保留
  *     <li><p> Otherwise the channel's key is already in the selected-key set,
  *     so its ready-operation set is modified to identify any new operations
  *     for which the channel is reported to be ready.  Any readiness
@@ -132,6 +137,7 @@ import java.util.Set;
  *   interest sets then neither the selected-key set nor any of the keys'
  *   ready-operation sets will be updated.
  *
+ *    //TODO: haozhichao 2019-03-06 16:17:23  3.
  *   <li><p> If any keys were added to the cancelled-key set while step (2) was
  *   in progress then they are processed as in step (1). </p></li>
  *

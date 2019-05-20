@@ -289,7 +289,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
      * Executes the computation without setting its result, and then
      * resets this future to initial state, failing to do so if the
      * computation encounters an exception or is cancelled.  This is
-     * designed for use with tasks that intrinsically execute more
+     * designed for use with tasks that intrinsically(真正；从本质上来说；内在的， 固有的) execute more
      * than once.
      *
      * @return {@code true} if successfully run and reset

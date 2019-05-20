@@ -51,7 +51,7 @@ import java.io.IOException;
  * <ul>
  *
  *   <li><p> The <i>interest set</i> determines which operation categories will
- *   be tested for readiness the next time one of the selector's selection
+ *   be tested for readiness (/'redinus/ 就绪) the next time one of the selector's selection
  *   methods is invoked.  The interest set is initialized with the value given
  *   when the key is created; it may later be changed via the {@link
  *   #interestOps(int)} method. </p></li>
@@ -94,7 +94,7 @@ import java.io.IOException;
  * synchronization is performed is implementation-dependent: In a naive
  * implementation, reading or writing the interest set may block indefinitely
  * if a selection operation is already in progress; in a high-performance
- * implementation, reading or writing the interest set may block briefly, if at
+ * implementation, reading or writing the interest set may block briefly(短暂的), if at
  * all.  In any case, a selection operation will always use the interest-set
  * value that was current at the moment that the operation began.  </p>
  *

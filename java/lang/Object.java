@@ -240,11 +240,11 @@ public class Object {
      * Wakes up a single thread that is waiting on this object's
      * monitor. If any threads are waiting on this object, one of them
      * is chosen to be awakened. The choice is arbitrary and occurs at
-     * the discretion of the implementation. A thread waits on an object's
+     * the discretion(谨慎，自行决定的自由) of the implementation. A thread waits on an object's
      * monitor by calling one of the {@code wait} methods.
      * <p>
      * The awakened thread will not be able to proceed until the current
-     * thread relinquishes the lock on this object. The awakened thread will
+     * thread relinquishes((尤指不情愿地)放弃) the lock on this object. The awakened thread will
      * compete in the usual manner with any other threads that might be
      * actively competing to synchronize on this object; for example, the
      * awakened thread enjoys no reliable privilege or disadvantage in being
@@ -305,7 +305,7 @@ public class Object {
      * This method causes the current thread (call it <var>T</var>) to
      * place itself in the wait set for this object and then to relinquish
      * any and all synchronization claims on this object. Thread <var>T</var>
-     * becomes disabled for thread scheduling purposes and lies dormant
+     * becomes disabled for thread scheduling purposes and lies(在于，位于) dormant (休眠的， 暂停活动的)
      * until one of four things happens:
      * <ul>
      * <li>Some other thread invokes the {@code notify} method for this
@@ -401,7 +401,7 @@ public class Object {
      * {@code wait(0, 0)} means the same thing as {@code wait(0)}.
      * <p>
      * The current thread must own this object's monitor. The thread
-     * releases ownership of this monitor and waits until either of the
+     * releases ownership(所有权) of this monitor and waits until either of the
      * following two conditions has occurred:
      * <ul>
      * <li>Another thread notifies threads waiting on this object's monitor
@@ -474,7 +474,7 @@ public class Object {
      * {@code notifyAll} method. The thread then waits until it can
      * re-obtain ownership of the monitor and resumes execution.
      * <p>
-     * As in the one argument version, interrupts and spurious wakeups are
+     * As in the one argument version, interrupts and spurious(虚假的，伪造的) wakeups are
      * possible, and this method should always be used in a loop:
      * <pre>
      *     synchronized (obj) {

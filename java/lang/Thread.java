@@ -282,7 +282,7 @@ class Thread implements Runnable {
     public static native void yield();
 
     /**
-     * Causes the currently executing thread to sleep (temporarily cease
+     * Causes the currently executing thread to sleep (temporarily cease(/si:s/ 停止，结束)
      * execution) for the specified number of milliseconds, subject to
      * the precision and accuracy of system timers and schedulers. The thread
      * does not lose ownership of any monitors.
@@ -1736,6 +1736,30 @@ class Thread implements Runnable {
      * @since   1.5
      * @see #getState
      */
+
+    /**
+           //TODO: haozhichao 2019-02-02 10:41:32
+
+
+
+
+                                   BLOCKED
+
+                                  syncronized
+
+
+            NEW                       RUNNABLE                                                       TERMINATE
+                                 (notify, notifyAll)
+
+
+
+                     (wait, park, join)         (sleep, wait(long), parkNano, parkUtil, join(long))
+
+                         WAITING                                 TIME_WAITING
+
+
+
+     **/
     public enum State {
         /**
          * Thread state for a thread which has not yet started.
