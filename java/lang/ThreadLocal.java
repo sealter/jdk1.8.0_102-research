@@ -187,6 +187,12 @@ public class ThreadLocal<T> {
         return value;
     }
 
+    /*
+           1. why do not use HashMap?
+           2. if threadLocal used in threadpool, what happened?
+           3. why threadmap not in threadLocal?
+     */
+
     /**
      * Sets the current thread's copy of this thread-local variable
      * to the specified value.  Most subclasses will have no need to

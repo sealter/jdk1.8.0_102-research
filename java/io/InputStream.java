@@ -159,6 +159,7 @@ public abstract class InputStream implements Closeable {
      * @see        java.io.InputStream#read()
      */
     public int read(byte b[], int off, int len) throws IOException {
+        // 参数校验
         if (b == null) {
             throw new NullPointerException();
         } else if (off < 0 || len < 0 || len > b.length - off) {
@@ -167,13 +168,16 @@ public abstract class InputStream implements Closeable {
             return 0;
         }
 
+        // 先读一次，第一次读取有异常，则抛出
         int c = read();
         if (c == -1) {
             return -1;
         }
+        // 字节转换
         b[off] = (byte)c;
 
         int i = 1;
+        // 捕获异常
         try {
             for (; i < len ; i++) {
                 c = read();
